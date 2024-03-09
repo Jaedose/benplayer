@@ -4,7 +4,7 @@
   <description asmv2:iconFile="BPIcon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="BenPlayer" version="1.1.0.1" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="BenPlayer" version="1.1.1.6" language="neutral" processorArchitecture="msil" />
     <commandLine file="BenPlayer.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -41,13 +41,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BenPlayer.exe" size="49152">
-      <assemblyIdentity name="BenPlayer" version="1.1.0.1" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="BenPlayer" version="1.1.1.6" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rT2eWwNrZJ55qImmNYoBPZKNp/E=</dsig:DigestValue>
+        <dsig:DigestValue>aq4rY5SryY5Ho+yoHJsdvg/pFyk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

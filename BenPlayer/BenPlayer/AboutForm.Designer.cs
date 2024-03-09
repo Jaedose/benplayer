@@ -69,9 +69,9 @@ namespace BenPlayer
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(226, 13);
+            this.label3.Size = new System.Drawing.Size(229, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "v1.10 build 1 (probably 32 bits) - March 6 2024";
+            this.label3.Text = "v1.1.1 build 6 (probably 32 bits) - March 8 2024";
             // 
             // AboutForm
             // 

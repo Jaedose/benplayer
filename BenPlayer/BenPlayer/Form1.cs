@@ -8,6 +8,10 @@ using System.Windows.Forms;
 using System.Media;
 using System.IO;
 using System.Diagnostics;
+using System.Net;
+using System.Collections.Specialized;
+using System.Reflection;
+
 
 
 namespace BenPlayer
@@ -34,6 +38,62 @@ namespace BenPlayer
             
             
         }
+
+        private void CheckForUpdates()
+        {
+            // Pre-set version (replace with your actual version)
+            string currentVersion = "1.1.1";
+
+            // Construct URL with version parameter
+            string updateCheckUrl = "http://ec2-15-229-12-201.sa-east-1.compute.amazonaws.com/benupdate?version=" + currentVersion;
+
+            HttpWebRequest request = null;
+            try
+            {
+                request = (HttpWebRequest)WebRequest.Create(updateCheckUrl);
+                request.Method = "POST";
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    string responseBody = reader.ReadToEnd();
+
+                    // Handle response logic
+                    if (responseBody == "1")
+                    {
+                        MessageBox.Show("An update is available!");
+                    }
+                    else if (responseBody == "0")
+                    {
+                        MessageBox.Show("The application is up to date.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(responseBody, "Check Successful");
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show("Error checking for updates: " + ex.Message, "Check Failed");
+            }
+            catch (Exception ex) // Catch other potential exceptions
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error");
+            }
+            finally
+            {
+                // Ensure request is disposed
+                if (request != null)
+                {
+                    request.Abort();
+                }
+            }
+        }
+
+
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -229,6 +289,11 @@ namespace BenPlayer
         {
             playlist.Clear();
             listBoxPlaylist.Items.Clear();
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForUpdates();
         }
 
     }
